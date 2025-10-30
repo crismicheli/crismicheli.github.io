@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cris Micheli, PhD - Neuroscience &amp; Biotechnology</title>
+    <meta name="description" content="Cris Micheli - Neuroscience Researcher, Biotechnology Consultant, and Innovation Bridge Builder based in Berlin.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS VARIABLES - EDIT COLORS HERE
+           ============================================ */
+        :root {
+            /* Colors - Customize your theme */
+            --color-primary: #1e3a8a;
+            --color-accent: #3b82f6;
+            --color-background: #ffffff;
+            --color-surface: #f9fafb;
+            --color-text: #1f2937;
+            --color-text-light: #6b7280;
+            --color-border: #e5e7eb;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            
+            /* Borders */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-primary: #3b82f6;
+                --color-accent: #60a5fa;
+                --color-background: #0f172a;
+                --color-surface: #1e293b;
+                --color-text: #f1f5f9;
+                --color-text-light: #94a3b8;
+                --color-border: #334155;
+            }
+        }
+        
+        /* ============================================
+           BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+            position: relative;
+            background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+        }
+        
+        .hero__content {
+            text-align: center;
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero__name {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+        
+        .hero__tagline {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-light);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        .hero__scroll {
+            position: absolute;
+            bottom: var(--space-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .hero__scroll-text {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+        
+        .hero__scroll-icon {
+            width: 24px;
+            height: 36px;
+            border: 2px solid var(--color-text-light);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .hero__scroll-icon::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background-color: var(--color-text-light);
+            border-radius: 2px;
+            animation: scroll 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes scroll {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(12px);
+            }
+        }
+        
+        /* ============================================
+           SECTION STYLES
+           ============================================ */
+        .section {
+            padding: var(--space-3xl) var(--space-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section__title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        /* Intersection Observer animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           BIO SECTION
+           ============================================ */
+        .bio {
+            background-color: var(--color-surface);
+        }
+        
+        .bio__content {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        
+        .bio__text {
+            margin-bottom: var(--space-md);
+        }
+        
+        .bio__extra {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.5s ease;
+        }
+        
+        .bio__extra.expanded {
+            max-height: 1000px;
+            margin-top: var(--space-md);
+        }
+        
+        .bio__toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: none;
+            border: none;
+            color: var(--color-accent);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            padding: var(--space-sm) 0;
+            transition: color var(--transition-fast);
+            font-family: var(--font-sans);
+        }
+        
+        .bio__toggle:hover {
+            color: var(--color-primary);
+        }
+        
+        .bio__toggle-icon {
+            transition: transform var(--transition-base);
+            display: inline-block;
+        }
+        
+        .bio__toggle-icon.rotated {
+            transform: rotate(180deg);
+        }
+        
+        /* ============================================
+           LINKS SECTION
+           ============================================ */
+        .links {
+            background-color: var(--color-background);
+        }
+        
+        .links__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background-color: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--color-text);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--color-accent);
+            transform: scaleY(0);
+            transition: transform var(--transition-base);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-accent);
+        }
+        
+        .link-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .link-card--primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            border: none;
+        }
+        
+        .link-card--primary .link-card__title,
+        .link-card--primary .link-card__description {
+            color: white;
+        }
+        
+        .link-card__icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-2xl);
+        }
+        
+        .link-card--primary .link-card__icon {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .link-card__content {
+            flex: 1;
+        }
+        
+        .link-card__title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .link-card__description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+        }
+        
+        .link-card__arrow {
+            flex-shrink: 0;
+            font-size: var(--font-size-xl);
+            opacity: 0.5;
+            transition: all var(--transition-base);
+        }
+        
+        .link-card:hover .link-card__arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: var(--space-2xl) var(--space-lg);
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .footer__content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            text-align: center;
+        }
+        
+        .footer__text {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+        }
+        
+        .footer__links {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer__link {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer__link:hover {
+            color: var(--color-accent);
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero__name {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .hero__tagline {
+                font-size: var(--font-size-lg);
+            }
+            
+            .section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+            
+            .section__title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .bio__content {
+                font-size: var(--font-size-base);
+            }
+            
+            .link-card {
+                padding: var(--space-md);
+            }
+            
+            .link-card__icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero__name {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .hero__tagline {
+                font-size: var(--font-size-base);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__name" id="heroName">Cris Micheli, PhD</h1>
+            <p class="hero__tagline" id="heroTagline">Neuroscience Researcher • Biotechnology Consultant • Innovation Bridge Builder</p>
+        </div>
+        <div class="hero__scroll" onclick="document.getElementById('bio').scrollIntoView({behavior: 'smooth'})">
+            <span class="hero__scroll-text">Scroll</span>
+            <div class="hero__scroll-icon"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BIO SECTION
+         ============================================ -->
+    <section id="bio" class="section bio fade-in-section">
+        <h2 class="section__title">About</h2>
+        <div class="bio__content">
+            <p class="bio__text" id="bioBrief"></p>
+            <div class="bio__extra" id="bioExtra">
+                <p class="bio__text" id="bioFull"></p>
+            </div>
+            <button class="bio__toggle" id="bioToggle" onclick="toggleBio()">
+                <span id="bioToggleText">Read more</span>
+                <span class="bio__toggle-icon" id="bioToggleIcon">↓</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         LINKS SECTION
+         ============================================ -->
+    <section id="links" class="section links fade-in-section">
+        <h2 class="section__title">Connect</h2>
+        <div class="links__grid" id="linksGrid">
+            <!-- Links will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer__content">
+            <p class="footer__text" id="footerCopyright"></p>
+            <p class="footer__text" id="footerNote"></p>
+            <div class="footer__links">
+                <a href="https://github.com/crismicheli" target="_blank" class="footer__link">GitHub</a>
+                <a href="https://www.linkedin.com/in/crismicheli/" target="_blank" class="footer__link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ============================================
+           CONTENT CONFIGURATION
+           EDIT THIS SECTION TO UPDATE PAGE CONTENT
+           ============================================ */
+        
+        const SITE_CONTENT = {
+            // Hero section
+            name: "Cris Micheli, PhD",
+            tagline: "Neuroscience Researcher • Biotechnology Consultant • Innovation Bridge Builder",
+            
+            // Bio section
+            bio: {
+                brief: "Multidisciplinary researcher and consultant specializing in neuroscience, brain organoid technologies, and technology transfer. Based in Berlin, bridging academic research with commercial applications in the biotechnology sector.",
+                full: "With expertise spanning neuroscience research, pharmaceutical drug development, and biotechnology commercialization, I work at the intersection of cutting-edge science and business innovation. My focus includes brain organoid technologies, technology transfer, and fostering collaborations within Europe's dynamic startup ecosystem. Currently based in Berlin, I help organizations navigate the complex landscape of academic-industry partnerships and emerging neurotechnologies."
+            },
+            
+            // Links section
+            links: [
+                {
+                    title: "Linktree",
+                    description: "All my links in one place",
+                    url: "https://linktr.ee/crismicheli",
+                    icon: "🌳",
+                    primary: true
+                },
+                {
+                    title: "GitHub",
+                    description: "Open source projects and repositories",
+                    url: "https://github.com/crismicheli",
+                    icon: "💻",
+                    primary: false
+                },
+                {
+                    title: "Berlin Analytics Hub",
+                    description: "Data analytics and insights from Berlin",
+                    url: "https://crismicheli.github.io/berlin-analytics-hub/",
+                    icon: "📊",
+                    primary: false
+                },
+                {
+                    title: "LinkedIn",
+                    description: "Professional network and updates",
+                    url: "https://www.linkedin.com/in/crismicheli/",
+                    icon: "🔗",
+                    primary: false
+                }
+            ],
+            
+            // Footer
+            footer: {
+                copyright: "© 2025 Cris Micheli",
+                note: "Built with GitHub Pages",
+                lastUpdated: "October 2025"
+            }
+        };
+        
+        /* ============================================
+           PAGE INITIALIZATION
+           ============================================ */
+        
+        // Populate content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeContent();
+            setupIntersectionObserver();
+        });
+        
+        function initializeContent() {
+            // Hero section
+            document.getElementById('heroName').textContent = SITE_CONTENT.name;
+            document.getElementById('heroTagline').textContent = SITE_CONTENT.tagline;
+            
+            // Bio section
+            document.getElementById('bioBrief').textContent = SITE_CONTENT.bio.brief;
+            document.getElementById('bioFull').textContent = SITE_CONTENT.bio.full;
+            
+            // Links section
+            renderLinks();
+            
+            // Footer
+            document.getElementById('footerCopyright').textContent = SITE_CONTENT.footer.copyright;
+            document.getElementById('footerNote').textContent = SITE_CONTENT.footer.note;
+        }
+        
+        /* ============================================
+           BIO TOGGLE FUNCTIONALITY
+           ============================================ */
+        
+        let bioExpanded = false;
+        
+        function toggleBio() {
+            const bioExtra = document.getElementById('bioExtra');
+            const toggleText = document.getElementById('bioToggleText');
+            const toggleIcon = document.getElementById('bioToggleIcon');
+            
+            bioExpanded = !bioExpanded;
+            
+            if (bioExpanded) {
+                bioExtra.classList.add('expanded');
+                toggleText.textContent = 'Read less';
+                toggleIcon.classList.add('rotated');
+            } else {
+                bioExtra.classList.remove('expanded');
+                toggleText.textContent = 'Read more';
+                toggleIcon.classList.remove('rotated');
+            }
+        }
+        
+        /* ============================================
+           LINKS RENDERING
+           ============================================ */
+        
+        function renderLinks() {
+            const linksGrid = document.getElementById('linksGrid');
+            linksGrid.innerHTML = '';
+            
+            SITE_CONTENT.links.forEach(link => {
+                const card = createLinkCard(link);
+                linksGrid.appendChild(card);
+            });
+        }
+        
+        function createLinkCard(link) {
+            const card = document.createElement('a');
+            card.href = link.url;
+            card.target = '_blank';
+            card.className = link.primary ? 'link-card link-card--primary' : 'link-card';
+            
+            card.innerHTML = `
+                <div class="link-card__icon">${link.icon}</div>
+                <div class="link-card__content">
+                    <div class="link-card__title">${link.title}</div>
+                    <div class="link-card__description">${link.description}</div>
+                </div>
+                <div class="link-card__arrow">→</div>
+            `;
+            
+            return card;
+        }
+        
+        /* ============================================
+           SCROLL ANIMATIONS
+           ============================================ */
+        
+        function setupIntersectionObserver() {
+            const options = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, options);
+            
+            // Observe all fade-in sections
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+    </script>
+</body>
+</html>
