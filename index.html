@@ -258,6 +258,14 @@
             overflow: hidden;
             transition: max-height 0.5s ease, margin-top 0.5s ease;
         }
+
+        #bioFull p {
+            margin-bottom: var(--space-md);
+        }
+        
+        #bioFull p:last-child {
+            margin-bottom: 0;
+        }
         
         .bio__extra.expanded {
             max-height: 1000px;
@@ -505,7 +513,7 @@
     <section id="bio" class="section bio fade-in-section">
         <h2 class="section__title">About</h2>
         <div class="bio__content">
-            <p class="bio__text" id="bioBrief"></p>
+            <div class="bio__text" id="bioBrief"></div>
             <div class="bio__extra" id="bioExtra">
                 <div class="bio__text" id="bioFull"></div>
             </div>
@@ -553,11 +561,10 @@
             
             // Bio section
             bio: {
-                brief: `cris.micheli@neurotechx.com
-                Neuroscientist, data scientist, and builder working at the intersection of brain data, product strategy, and venture building.`,
+                brief: `<strong>cris.micheli@neurotechx.com</strong><br>Neuroscientist, data scientist, and builder working at the intersection of brain data, product strategy, and venture building.`,
                 full: `<p>With 20+ years in neuroscience and business development, I've led deals generating €1.5M+ in sales and secured €800k+ in EU grants. I specialize in bridging academic innovation with commercial applications—whether you're an accelerator portfolio company needing product-market fit, a university tech transfer office seeking industry partners, a CRO expanding neurotechnology services, or pharma exploring digital biomarkers.</p>
-                  <p>I work with: Incubators &amp; accelerators (portfolio company BD strategy) | Academic institutions (tech transfer, grant writing) | Neurotechnology startups (product validation, regulatory pathways) | Pharma &amp; CROs (digital biomarker development, translational research design)</p>
-                  <p>Core expertise: EEG/BCI technologies, brain organoids, biosignal processing, AI/ML applications, Horizon Europe funding, DACH/Benelux market entry.</p>
+                  <p><strong>I work with:</strong> Incubators &amp; accelerators (portfolio company BD strategy) | Academic institutions (tech transfer, grant writing) | Neurotechnology startups (product validation, regulatory pathways) | Pharma &amp; CROs (digital biomarker development, translational research design)</p>
+                  <p><strong>Core expertise:</strong> EEG/BCI technologies, brain organoids, biosignal processing, AI/ML applications, Horizon Europe funding, DACH/Benelux market entry.</p>
                   <p>Based in Berlin, leading NeuroTechX Berlin. PhD Neuroscience (Tübingen), fluent in English, German, Italian.</p>`
             },
             
