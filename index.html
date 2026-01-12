@@ -61,7 +61,8 @@
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
 
-            .about-brief {
+            /* Allows line breaks in bio.brief element */
+            .bio__text {
                 white-space: pre-line;
             }
         }
@@ -552,22 +553,13 @@
             
             // Bio section
             bio: {
-                brief: "cris.micheli@neurotechx.com\nNeuroscientist, data scientist, and builder working at the intersection of brain data, product strategy, and venture building.",
-                full: `
-                  <p>
-                    With 20+ years in neuroscience and business development, I've led deals generating €1.5M+ in sales and secured €800k+ in EU grants. I specialize in bridging academic innovation with commercial applications—whether you're an accelerator portfolio company needing product-market fit, a university tech transfer office seeking industry partners, a CRO expanding neurotechnology services, or pharma exploring digital biomarkers.
-                  </p>
-                  <p>
-                    I work with: Incubators &amp; accelerators (portfolio company BD strategy) | Academic institutions (tech transfer, grant writing) | Neurotechnology startups (product validation, regulatory pathways) | Pharma &amp; CROs (digital biomarker development, translational research design)
-                  </p>
-                  <p>
-                    Core expertise: EEG/BCI technologies, brain organoids, biosignal processing, AI/ML applications, Horizon Europe funding, DACH/Benelux market entry.
-                  </p>
-                  <p>
-                    Based in Berlin, leading NeuroTechX Berlin. PhD Neuroscience (Tübingen), fluent in English, German, Italian.
-                  </p>
-                `,
-                    },
+                brief: `cris.micheli@neurotechx.com
+                Neuroscientist, data scientist, and builder working at the intersection of brain data, product strategy, and venture building.`,
+                full: `<p>With 20+ years in neuroscience and business development, I've led deals generating €1.5M+ in sales and secured €800k+ in EU grants. I specialize in bridging academic innovation with commercial applications—whether you're an accelerator portfolio company needing product-market fit, a university tech transfer office seeking industry partners, a CRO expanding neurotechnology services, or pharma exploring digital biomarkers.</p>
+                  <p>I work with: Incubators &amp; accelerators (portfolio company BD strategy) | Academic institutions (tech transfer, grant writing) | Neurotechnology startups (product validation, regulatory pathways) | Pharma &amp; CROs (digital biomarker development, translational research design)</p>
+                  <p>Core expertise: EEG/BCI technologies, brain organoids, biosignal processing, AI/ML applications, Horizon Europe funding, DACH/Benelux market entry.</p>
+                  <p>Based in Berlin, leading NeuroTechX Berlin. PhD Neuroscience (Tübingen), fluent in English, German, Italian.</p>`
+            },
             
             // Links section
             links: [
@@ -639,7 +631,7 @@
             document.getElementById('heroTagline').textContent = SITE_CONTENT.tagline;
             
             // Bio section
-            document.getElementById('bioBrief').textContent = SITE_CONTENT.bio.brief;
+            document.getElementById('bioBrief').innerHTML = SITE_CONTENT.bio.brief;
             document.getElementById('bioFull').innerHTML = SITE_CONTENT.bio.full;
             
             // Links section
