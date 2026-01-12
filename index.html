@@ -60,6 +60,10 @@
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
+
+            .about-brief {
+                white-space: pre-line;
+            }
         }
         
         /* Dark mode support */
@@ -636,7 +640,7 @@
             
             // Bio section
             document.getElementById('bioBrief').textContent = SITE_CONTENT.bio.brief;
-            document.getElementById('bioFull').textContent = SITE_CONTENT.bio.full;
+            document.getElementById('bioFull').innerHTML = SITE_CONTENT.bio.full;
             
             // Links section
             renderLinks();
